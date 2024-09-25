@@ -10,7 +10,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Checkout the code from GitHub
-                git 'https://github.com/ryanc7/ansible' // Replace with your repo URL
+                git 'https://github.com/ryanc7/ansible-test' // Replace with your repo URL
             }
         }
 

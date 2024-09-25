@@ -1,6 +1,7 @@
 pipeline {
-    agent 'vm-node'
-
+    agent {
+        label 'vm-node'
+    }
     environment {
         ANSIBLE_HOST_KEY_CHECKING = 'false' // Optional: Disable host key checking if necessary
     }

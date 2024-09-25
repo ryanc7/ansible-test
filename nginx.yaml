@@ -1,0 +1,22 @@
+---
+- name: Deploy Nginx servers
+  hosts: all  # You can change 'all' to a specific group from your inventory file
+  become: yes  # Elevates privileges to sudo
+  tasks:
+    - name: Ensure Nginx is installed
+      apt:
+        name: nginx
+        state: present
+        update_cache: yes
+
+    - name: Ensure Nginx is started and enabled
+      systemd:
+        name: nginx
+        state: started
+        enabled: yes
+
+    - name: Open port 80 (HTTP) in firewall (optional, if you're using UFW)
+      ufw:
+        rule: allow
+        port: '80'
+        proto: tcp
